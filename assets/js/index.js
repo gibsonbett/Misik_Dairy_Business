@@ -32,6 +32,29 @@ function produceReport(){
 
    weeklyIncome = dailyIncome * 7;
 
+   document.getElementById("outputData").innerHTML += "<p>Your total weekly income is Ksh. " + weeklyIncome + " </p>";
+
+   document.getElementById("outputData").innerHTML += "<hr>"
+
+   document.getElementById("outputData").innerHTML += "<Br>"
+
+   incomeJanuary = dailyIncome * 31;
+   incomeFebruary = dailyIncome * 29;
+   incomeMarch = dailyIncome * 31;
+   incomeApril = dailyIncome * 30;
+   incomeMay = dailyIncome * 31;
+   incomeJune = dailyIncome * 30;
+   incomeJuly = dailyIncome * 31;
+   incomeAugust = dailyIncome * 31;
+   incomeSeptember = dailyIncome * 30;
+   incomeOctober = dailyIncome * 31;
+   incomeNovember = dailyIncome * 30;
+   incomeDecember = dailyIncome * 31;
+
+   
+
+
+
   
 
 }
