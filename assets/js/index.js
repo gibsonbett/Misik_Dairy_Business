@@ -21,6 +21,7 @@ function produceReport(){
    
 
    dailyIncome = sumData * 45;
+   
 
 
 }
