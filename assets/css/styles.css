@@ -29,6 +29,7 @@ body{
     width: 80%;
     margin: 0px auto;
     justify-content: center;
+    opacity: 85%;
     
     
 }
@@ -49,21 +50,21 @@ body{
 
 .formData   #sheds{
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 80%;
     margin-top: 20px;
     
 }
 
 .formData > form{
-    width: 100%;
-    padding: 20px;
-    
+    width: 80%;
+    padding: 25px;
 }
 
 form > div > input[type="number"]{
     height: 30px;
+    width: 145px;
      
 }
 
@@ -92,7 +93,7 @@ form > button[type = "submit"], form > button[type = "reset"]{
     border-radius: 4px;
     font-size: 16px;
     height: 550px;
-    margin-left: 50px;
+    margin-left: 100px;
     background-color: rgb(20, 60, 68);
 }
 
