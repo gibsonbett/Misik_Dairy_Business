@@ -1,77 +1,122 @@
 body{
-    width: 100%;
     margin: 0px;
     padding: 0px;
+    color: white;
+    background-color: rgb(221, 228, 230);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     box-sizing: border-box;
+    background-image: url(../images/dairy.jpeg);
+    
+    
 }
+
 #title{
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background-color: rgb(13, 48, 13);
-    height: 70px;
-    margin-top: 0px;
-    box-shadow: 0px 0px 10px rgba(red, green, blue, alpha);
-}
-.milkProduce{
-    margin: 0px auto;
-    width 80%;
-    justify-content: space-evenly;
-}
-.formData{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 140px;
-    width: 35%;
-    height: 60%;
-    border-radius: 4px;
-    font-size: 16px;
-    box-shadow: 0px 0px 10px rgb(59, 131, 59);
+    box-shadow:0px 0px 10px rgb(150, 179, 169);
+    background-color: rgb(16, 57, 65);
+    color: white;
+    height: 60px;
+    margin-top: 0px;
+    
+    
     
 }
+.milkProduce{
+    width: 90%;
+    margin: 0px auto;
+    justify-content: center;
+    
+    
+}
+
+.formData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin-right: 40px;
+    box-shadow: 0px 0px 10px rgb(150, 179, 169);
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 140px;
+    background-color: rgb(20, 60, 68);
+       
+}
+
 .formData   #sheds{
     display: flex;
     justify-content: center;
     flex-direction: column;
     width: 100%;
     margin-top: 20px;
+    
 }
+
 .formData > form{
     width: 100%;
     padding: 20px;
     
 }
-.form > div > input [type="number"] {
-    height: 30px;
-}
-.outputDisplay{
 
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin-left: 140px;
-    border-radius: 4px;
-    font-size: 16px;
-    box-shadow: 0px 0px 10px rgb(59, 131, 59);
+form > div > input[type="number"]{
+    height: 30px;
+     
 }
+
+form > button {
+    
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    width: 100%;
+    
+}
+
 form > button[type = "submit"]{
     margin-top: 20px;
 }
 form > button[type = "submit"], form > button[type = "reset"]{
     background: none;
-    color: green;
-    border: 1px solid green;
+    color: white;
+    border: 1px solid white;
 } 
+
 .outputDisplay{
     overflow: auto;
-    width: 80%;
-    box-shadow:0px 0px 10px rgb(2, 54, 36);
-    background-color: rgb(28, 201, 143);
+    width: 50%;
+    box-shadow:0px 0px 10px rgb(150, 179, 169);
+    background-color: rgb(16, 57, 65);
     border-radius: 4px;
     font-size: 16px;
     height: 550px;
+    margin-left: 140px;
+    background-color: rgb(20, 60, 68);
+}
+
+#displayTitle{
+    text-align: center;
+}
+
+#outputData{
+    padding: 0px 20px;
+}
+
+@media screen and (max-width: 760px) {
+    .milkProduce{
+        display: flex;
+        flex-direction: column;  
+    }
+
+    .formData {
+        width: 100%;
+        margin-bottom: 20px; 
+    }
+
+    .outputDisplay{
+        width: 100%;
+       
+    }
     
 }
