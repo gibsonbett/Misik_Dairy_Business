@@ -6,7 +6,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     box-sizing: border-box;
-    background-image: url(../images/dairy.jpeg);
+    background-image: url(../images/dairyfarm.jpg);
     
     
 }
@@ -25,7 +25,8 @@ body{
     
 }
 .milkProduce{
-    width: 90%;
+    display: flex;
+    width: 80%;
     margin: 0px auto;
     justify-content: center;
     
@@ -41,7 +42,7 @@ body{
     box-shadow: 0px 0px 10px rgb(150, 179, 169);
     border-radius: 4px;
     font-size: 16px;
-    margin-left: 140px;
+    margin-left: 50px;
     background-color: rgb(20, 60, 68);
        
 }
@@ -91,7 +92,7 @@ form > button[type = "submit"], form > button[type = "reset"]{
     border-radius: 4px;
     font-size: 16px;
     height: 550px;
-    margin-left: 140px;
+    margin-left: 50px;
     background-color: rgb(20, 60, 68);
 }
 
