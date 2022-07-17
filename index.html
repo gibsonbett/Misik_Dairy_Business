@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misik Dairy Business</title>
+    <link rel="stylesheet" href="Misik_Dairy_Business/assets/css/styles.css">
+</head>
+<body>
+    <!--Title Section-->
+    <section>
+        <h1 id="title">Misik Dairy Business Monitor</h1>
+        <div class="milkProduce">
+            <!--Input data section-->
+            <div class="formData">
+                <form action="submit" onsubmit="produceReport();">
+                    <h3>Fill and submit data on the form to get production summary of the farm's output</h3>
+                    <div id="sheds">
+                        <label for="shed_A">Shed A: Milk(litres)</label>
+                        <input id="shed_A" type="number" min="0" required>
+                    </div>
+                    <div id="sheds">
+                        <label for="shed_B">Shed B: Milk(litres)</label>
+                        <input id="shed_B" type="number" min="0" required>
+                    </div>
+                    <div id="sheds">
+                        <label for="shed_C">Shed C: Milk(litres)</label>
+                        <input id="shed_C" type="number" min="0" required>
+                    </div>
+                    <div id="sheds">
+                        <label for="shed_D">Shed D: Milk(litres)</label>
+                        <input id="shed_D" type="number" min="0" required>
+                    </div>
+                    <button type="button">Submit</button>
+                    <button id="reset" type="reset" onclick="resetPage();">Reset</button>
+                    
+                </form>
+            </div>
+        </div>
+    </section>
+    <link rel="stylesheet" href="/Misik_Dairy_Business/assets/js/index.js">
+</body>
+</html>
