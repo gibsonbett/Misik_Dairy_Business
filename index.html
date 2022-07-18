@@ -22,7 +22,8 @@
             <div class="formData">
                 
                 <form action="submit" onsubmit="produceReport();">
-                    <h2>Enter and submit data on the form below to get production output</h2> 
+                    <h2 id="data_input">Data Input</h2> 
+                    <hr>
                     <div id="sheds">
                         <label for="shed_A">Shed A: Milk (Litres)</label>
                         <input id="shed_A" type="number" min="0" required>
@@ -52,7 +53,7 @@
             <!-- output section -->
             
             <div class="outputDisplay">
-                <h2 id="displayTitle">Production Output</h2>
+                <h2 id="outputTitle">Production Output</h2>
                 <hr>
                 <p id="outputData"></p>
     
