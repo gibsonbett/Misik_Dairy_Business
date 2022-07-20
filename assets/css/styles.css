@@ -1,129 +1,86 @@
 body{
-    margin: 0px;
-    padding: 0px;
-    color: white;
-    background-color: rgb(221, 228, 230);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    box-sizing: border-box;
-    background-image: url(../images/caroline-gunderson-s0lkbvtN9K8-unsplash.jpg);
-    
-    
-}
-
-#title{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow:0px 0px 10px rgb(150, 179, 169);
-    background-color: rgb(16, 57, 65);
-    color: white;
-    height: 60px;
-    margin-top: 0px;
-    
-    
-    
-}
-.milkProduce{
-    display: flex;
-    width: 80%;
-    margin: 0px auto;
-    justify-content: center;
-    opacity: 85%;    
-}
-
-.formData {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    margin-right: 40px;
-    box-shadow: 0px 0px 10px rgb(150, 179, 169);
-    border-radius: 4px;
-    font-size: 18px;
-    margin-left: 50px;
-    background-color: rgb(20, 60, 68);
-       
-}
-
-.formData   #sheds{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    width: 80%;
-    margin-top: 20px;
-    
-}
-
-.formData > form{
-    width: 80%;
-    padding: 25px;
-}
-
-form > div > input[type="number"]{
-    height: 30px;
-    width: 145px;
-     
-}
-#data_input{
-    padding-top: 0px !important;
-    margin-top: 10px ;
-    text-align: center;
-}
-form > button {
-    
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    width: 100%;
-    
-}
-
-form > button[type = "submit"]{
-    margin-top: 20px;
-    font-size: 18px;
-}
-form > button[type = "submit"], form > button[type = "reset"]{
-    background: none;
-    color: white;
-    border: 1px solid white;
-    font-size: 18px;
-} 
-
-.outputDisplay{
-    overflow: auto;
-    width: 50%;
-    box-shadow:0px 0px 10px rgb(150, 179, 169);
-    background-color: rgb(16, 57, 65);
-    border-radius: 4px;
-    font-size: 16px;
-    height: 550px;
-    margin-left: 100px;
-    background-color: rgb(20, 60, 68);
-}
-
-#outputTitle{
-    text-align: center;
-}
-
-#outputData{
-    padding: 0px 20px;
-
-}
-
-@media screen and (max-width: 760px) {
-    .milkProduce{
+    background-image: url("./Images/dairy-cattle.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 30px;
+    background-image: url(/assets/images/caroline-gunderson-s0lkbvtN9K8-unsplash.jpg);
+    margin: 50px;
+    }
+    :root {
+        --color-dark--2: #42484d;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      .hidden {
+        display: none;
+      }
+      .reports_hidden{
+        font-size: 20px;
+      }
+      .reports {
+        border-radius: 5px;
+        padding: 50px;
+        color: rgb(44, 15, 15);
+      }
+     .container{
         display: flex;
-        flex-direction: column;  
-    }
-
-    .formData {
-        width: 100%;
-        margin-bottom: 20px; 
-    }
-
-    .outputDisplay{
-        width: 100%;
-        font-size: 18px;
-    }
+        background-color: #42484d;
+        opacity: 80%;
+        margin: 250px;
+        width: 350px;
+        border-radius: 10px;
+        padding: 70px;
+     }
+     .form__input{
+         height: 25px;
+         width: 150px;
+         font-size: 15px;
+         border-radius: 10px;
+         padding: 10px;
     
-}
+     }
+     .form__label{
+        font-size: 25px;
+     }
+     button{
+         margin-top: 50px;
+        height: 40px;
+        width: 100px;
+        background: #2b6d1e;
+        border-radius: 10px;
+        position:relative;
+     }
+     
+      .report--daily {
+        background-image: linear-gradient(to top left, #1c2a46, #6fa79a);
+        opacity: 70%;
+      }
+      
+      .report--weekly {
+        background-image: linear-gradient(to top left, #39b385, #62237a);
+        opacity: 70%;
+      }
+      
+      .report--monthly {
+        background-image: linear-gradient(to top left, #2b6d1e, #c5656a);
+        opacity: 70%;
+      }
+      .report--yearly {
+          background-image: linear-gradient(to top left, #e67490, #4e2123);
+          opacity: 70%;
+        }
+      .report {
+        background-color: var(--color-dark--2);
+        border-radius: 15px;
+        padding: 1.5rem 2.25rem;
+        margin-bottom: 1.75rem;
+        cursor: pointer;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 0.75rem 1.5rem;
+      }

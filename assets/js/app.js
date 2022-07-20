@@ -1,155 +1,106 @@
-function produceReport(){
+'use strict';
 
-    event.preventDefault();
+const inputLabel = document.querySelectorAll('.form__label');
+const inputForm = document.querySelectorAll('.form__input');
+const btn = document.querySelector('.form__btn');
+const container = document.querySelector('.container')
+const reports = document.querySelector('.reports')
 
-    let data = [];
+const inputShedA = document.querySelector('.form__input--shedA');
+const inputShedB = document.querySelector('.form__input--shedB');
+const inputShedC = document.querySelector('.form__input--shedC');
+const inputShedD = document.querySelector('.form__input--shedD');
 
-     data[0] = data["shed_A"] = parseInt(document.getElementById("shed_A").value);
-     data[1] = data["shed_B"] = parseInt(document.getElementById("shed_B").value);
-     data[2] = data["shed_C"] = parseInt(document.getElementById("shed_C").value);
-     data[3] = data["shed_D"] = parseInt(document.getElementById("shed_D").value);
+const dailyReport = document.querySelector('.report--daily');
+const weeklyReport = document.querySelector('.report--weekly');
+const monthlyReport = document.querySelector('.report--monthly');
+const yearlyReport = document.querySelector('.report--yearly');
 
-    let sumData = data.shed_A + data.shed_B + data.shed_C + data.shed_D;
+const err = () => alert('input must be positive numbers');
 
-    document.getElementById("outputData").innerHTML += "<Br>"
+const getDaysInMonth = function (month, year) {
+  const days = new Date(year, month, 0).getDate();
+  return days;
+};
 
-    document.getElementById("outputData").innerHTML += "<p>Your production in shed A is " + data.shed_A + " litres per day</p>";
-    document.getElementById("outputData").innerHTML += "<p>Your production in shed B is " + data.shed_B + " litres per day</p>";
-    document.getElementById("outputData").innerHTML += "<p>Your production in shed C is " + data.shed_C + " litres per day</p>";
-    document.getElementById("outputData").innerHTML += "<p>Your production in shed D is " + data.shed_D + " litres per day</p>";
+class App {
+  #sellingPrice = 45;
+  #shedMovements = [];
 
-    document.getElementById("outputData").innerHTML += "<p>Your total production per day is " + sumData + " litres per day</p>";
-    
+  // prettier-ignore
+  #months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-    dailyIncome = sumData * 45;
+  constructor() {
+    btn.addEventListener('click', this._totalProduction.bind(this));
+  }
 
-    document.getElementById("outputData").innerHTML += "<Br>"
+  _totalProduction(evt) {
+    evt.preventDefault();
+    //validating functions
+    const validInputs = (...inputs) =>
+      inputs.every(input => Number.isFinite(input));
 
-    document.getElementById("outputData").innerHTML += "<hr>"
+    const allPositive = (...inputs) => inputs.every(input => input > 0);
 
-    document.getElementById("outputData").innerHTML += "<p>Your total daily income is Ksh. " + dailyIncome + " </p>";
+    const shedA = +inputShedD.value;
+    const shedB = +inputShedD.value;
+    const shedC = +inputShedC.value;
+    const shedD = +inputShedD.value;
 
-    document.getElementById("outputData").innerHTML += "<hr>"
+    if (
+      !validInputs(shedA, shedB, shedC, shedD) ||
+      !allPositive(shedA, shedB, shedC, shedD)
+    )
+      return err();
 
-    weeklyIncome = dailyIncome * 7;
+    this.#shedMovements.push(
+      +inputShedA.value,
+      +inputShedB.value,
+      +inputShedC.value,
+      +inputShedD.value
+    );
+    this.daily = this.#shedMovements.reduce((a, b) => a + b, 0);
+    this._renderReports();
+    reports.classList.remove('hidden');
+    container.classList.add('hidden')
+  }
+  _renderReports() {
+    this.#shedMovements.forEach(function (a, i) {
+      const html = `<p>Your production in ${inputLabel[i].textContent} is ${a} litres</p>`;
+      dailyReport.insertAdjacentHTML('beforeend', html);
+    });
+    dailyReport.insertAdjacentHTML(
+      'beforeend',
+      `The total production is ${this.daily} litres per day`
+    );
 
-    document.getElementById("outputData").innerHTML += "<p>Your total weekly income is Ksh. " + weeklyIncome + " </p>";
-
-    document.getElementById("outputData").innerHTML += "<hr>"
-
-    document.getElementById("outputData").innerHTML += "<Br>"
-
-
-
-    incomeJanuary = dailyIncome * 31;
-    incomeFebruary = dailyIncome * 29;
-    incomeMarch = dailyIncome * 31;
-    incomeApril = dailyIncome * 30;
-    incomeMay = dailyIncome * 31;
-    incomeJune = dailyIncome * 30;
-    incomeJuly = dailyIncome * 31;
-    incomeAugust = dailyIncome * 31;
-    incomeSeptember = dailyIncome * 30;
-    incomeOctober = dailyIncome * 31;
-    incomeNovember = dailyIncome * 30;
-    incomeDecember = dailyIncome * 31;
-
-     
-    document.getElementById("outputData").innerHTML += "<p> Your total income for January is Ksh. " + incomeJanuary + " </p>"
-    document.getElementById("outputData").innerHTML += "<p> Your total income for February is Ksh. " + incomeFebruary + " </p>"
-    document.getElementById("outputData").innerHTML += "<p> Your total income for March is Ksh. " + incomeMarch + " </p>"
-    document.getElementById("outputData").innerHTML += "<p> Your total income for April is Ksh. " + incomeApril + " </p>"
-    document.getElementById("outputData").innerHTML += "<p> Your total income for May is Ksh. " + incomeMay + " </p>"
-    document.getElementById("outputData").innerHTML += "<p> Your total income for June is Ksh. " + incomeJune + " </p>"
-    document.getElementById("outputData").innerHTML += "<p> Your total income for July is Ksh. " + incomeJuly + " </p>"
-    document.getElementById("outputData").innerHTML += "<p> Your total income for August is Ksh. " + incomeAugust + " </p>"
-    document.getElementById("outputData").innerHTML += "<p> Your total income for September is Ksh. " + incomeSeptember + " </p>"
-    document.getElementById("outputData").innerHTML += "<p> Your total income for October is Ksh. " + incomeOctober + " </p>"
-    document.getElementById("outputData").innerHTML += "<p> Your total income for November is Ksh. " + incomeNovember + " </p>"
-    document.getElementById("outputData").innerHTML += "<p> Your total income for December is Ksh. " + incomeDecember + " </p>"
-
-
-    document.getElementById("outputData").innerHTML += "<Br>"
-
-    document.getElementById("outputData").innerHTML += "<hr>"
-
-    incomeInLeapYear = dailyIncome * 366;
-
-    document.getElementById("outputData").innerHTML += "<p>Your total income in a leap year is Ksh. " + incomeInLeapYear + " </p>";
-
-    document.getElementById("outputData").innerHTML += "<hr>"
-
-    document.getElementById("outputData").innerHTML += "<Br>"
-
-    // optional qn section
-
-    // New price is 49.60
-    newDailyIncome = sumData * 49.60;
-
-    newIncomeJanuary = newDailyIncome * 31;
-    newIncomeFebruary = newDailyIncome * 29;
-    newIncomeMarch = newDailyIncome * 31;
-    newIncomeApril = newDailyIncome * 30;
-    newIncomeMay = newDailyIncome * 31;
-    newIncomeJune = newDailyIncome * 30;
-    newIncomeJuly = newDailyIncome * 31;
-    newIncomeAugust = newDailyIncome * 31;
-    newIncomeSeptember = newDailyIncome * 30;
-    newIncomeOctober = newDailyIncome * 31;
-    newIncomeNovember = newDailyIncome * 30;
-    newIncomeDecember = newDailyIncome * 31;
-
-    newIncomeInLeapYear = 366 * 49.60;
-
-    incomeJanuaryDifference = newIncomeJanuary - incomeJanuary;
-    incomeFebruaryDifference = newIncomeFebruary - incomeFebruary;
-    incomeMarchDifference = newIncomeMarch - incomeMarch;
-    incomeAprilDifference = newIncomeApril - incomeApril;
-    incomeMayDifference = newIncomeMay - incomeMay;
-    incomeJuneDifference = newIncomeJune - incomeJune;
-    incomeJulyDifference = newIncomeJuly - incomeJuly;
-    incomeAugustDifference = newIncomeAugust - incomeAugust;
-    incomeSeptemberDifference = newIncomeSeptember - incomeSeptember;
-    incomeOctoberDifference = newIncomeOctober - incomeOctober;
-    incomeNovemberDifference = newIncomeNovember - incomeNovember;
-    incomeDecemberDifference = newIncomeDecember - incomeDecember;
-
-
-    document.getElementById("outputData").innerHTML += "<h3> Comparison and difference in income per month for different prices </h3>";
-
-    document.getElementById("outputData").innerHTML += "<p>January: At price = Ksh. 45, you earn: Ksh. " + incomeJanuary + ". At price = 49.60, you earn Ksh. " + Math.round(newIncomeJanuary) + ". The difference, rounded off to the nearest value, is Ksh. " + Math.round(incomeJanuaryDifference) + ".</p>";
-    document.getElementById("outputData").innerHTML += "\n"
-    document.getElementById("outputData").innerHTML += "<p>February: At price = Ksh. 45, you earn: Ksh. " + incomeFebruary + ". At price = 49.60, you earn Ksh. " + Math.round(newIncomeFebruary) + ". The difference, rounded off to the nearest value, is Ksh. " + Math.round(incomeFebruaryDifference) + ".</p>";
-    document.getElementById("outputData").innerHTML += "\n"
-    document.getElementById("outputData").innerHTML += "<p>March: At price = Ksh. 45, you earn: Ksh. " + incomeMarch + ". At price = 49.60, you earn Ksh. " + Math.round(newIncomeMarch) + ". The difference, rounded off to the nearest value, is Ksh. " + Math.round(incomeMarchDifference) + ".</p>";
-    document.getElementById("outputData").innerHTML += "\n"
-    document.getElementById("outputData").innerHTML += "<p>April: At price = Ksh. 45, you earn: Ksh. " + incomeApril + ". At price = 49.60, you earn Ksh. " + Math.round(newIncomeApril) + ". The difference, rounded off to the nearest value, is Ksh. " + Math.round(incomeAprilDifference) + ".</p>";
-    document.getElementById("outputData").innerHTML += "\n"
-    document.getElementById("outputData").innerHTML += "<p>May: At price = Ksh. 45, you earn: Ksh. " + incomeMay + ". At price = 49.60, you earn Ksh. " + Math.round(newIncomeMay) + ". The difference, rounded off to the nearest value, is Ksh. " + Math.round(incomeMayDifference) + ".</p>";
-    document.getElementById("outputData").innerHTML += "\n"
-    document.getElementById("outputData").innerHTML += "<p>June: At price = Ksh. 45, you earn: Ksh. " + incomeJune + ". At price = 49.60, you earn Ksh. " + Math.round(newIncomeJune) + ". The difference, rounded off to the nearest value, is Ksh. " + Math.round(incomeJuneDifference) + ".</p>";
-    document.getElementById("outputData").innerHTML += "\n"
-    document.getElementById("outputData").innerHTML += "<p>July: At price = Ksh. 45, you earn: Ksh. " + incomeJuly + ". At price = 49.60, you earn Ksh. " + Math.round(newIncomeJuly) + ". The difference, rounded off to the nearest value, is Ksh. " + Math.round(incomeJulyDifference) + ".</p>";
-    document.getElementById("outputData").innerHTML += "\n"
-    document.getElementById("outputData").innerHTML += "<p>August: At price = Ksh. 45, you earn: Ksh. " + incomeAugust + ". At price = 49.60, you earn Ksh. " + Math.round(newIncomeAugust) + ". The difference, rounded off to the nearest value, is Ksh. " + Math.round(incomeAugustDifference) + ".</p>";
-    document.getElementById("outputData").innerHTML += "\n"
-    document.getElementById("outputData").innerHTML += "<p>September: At price = Ksh. 45, you earn: Ksh. " + incomeSeptember + ". At price = 49.60, you earn Ksh. " + Math.round(newIncomeSeptember) + ". The difference, rounded off to the nearest value, is Ksh. " + Math.round(incomeSeptemberDifference) + ".</p>";
-    document.getElementById("outputData").innerHTML += "\n"
-    document.getElementById("outputData").innerHTML += "<p>October: At price = Ksh. 45, you earn: Ksh. " + incomeOctober + ". At price = 49.60, you earn Ksh. " + Math.round(newIncomeOctober) + ". The difference, rounded off to the nearest value, is Ksh. " + Math.round(incomeOctoberDifference) + ".</p>";
-    document.getElementById("outputData").innerHTML += "\n"
-    document.getElementById("outputData").innerHTML += "<p>November: At price = Ksh. 45, you earn: Ksh. " + incomeNovember + ". At price = 49.60, you earn Ksh. " + Math.round(newIncomeNovember) + ". The difference, rounded off to the nearest value, is Ksh. " + Math.round(incomeNovemberDifference) + ".</p>";
-    document.getElementById("outputData").innerHTML += "\n"
-    document.getElementById("outputData").innerHTML += "<p>December: At price = Ksh. 45, you earn: Ksh. " + incomeDecember + ". At price = 49.60, you earn Ksh. " + Math.round(newIncomeDecember) + ". The difference, rounded off to the nearest value, is Ksh. " + Math.round(incomeDecemberDifference) + ".</p>";
-    document.getElementById("outputData").innerHTML += "<Br>"
-
-    
+    this._incomeOverTime(this.#sellingPrice, 7);
+    this._incomeOverTime(this.#sellingPrice, 365);
+    this._monthlyReport();
+  }
+  _incomeOverTime(sellingPrice, time) {
+    this.weekly = this.daily * time * sellingPrice;
+    this.yearly = this.daily * time * sellingPrice;
+    if (time === 7)
+      weeklyReport.insertAdjacentHTML(
+        'beforeend',
+        `Your weekly income will be ksh ${this.weekly}`
+      );
+    if (time === 365)
+      yearlyReport.insertAdjacentHTML(
+        'beforeend',
+        `Your yearly income will be ksh ${this.yearly}`
+      );
+  }
+  _monthlyReport() {
+    const monthly = this.daily * this.#sellingPrice;
+    this.#months.forEach(function (a, i) {
+      const html = `<p>Your income for ${a} is ${
+        monthly * getDaysInMonth(i + 1, 2021)
+      }</p>`;
+      monthlyReport.insertAdjacentHTML('beforeend', html);
+    });
+  }
 }
 
-// Reset Function section
-
-function resetPage(){
-
-    document.getElementById("outputData").remove("innerHTML");
-    location.reload();
-
-}
+const app = new App();

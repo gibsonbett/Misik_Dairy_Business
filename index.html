@@ -1,67 +1,58 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dairy Business Monitor</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
-</head>
-<body>
-
-    <!-- title section-->
-
-    <section>
-
-        <h1 id="title">Misik Dairy Business Monitor</h1>
-
-        <div class="milkProduce">
-    
-            <!-- data input section-->
-            
-            <div class="formData">
-                
-                <form action="submit" onsubmit="produceReport();">
-                    <h2 id="data_input">Data Input</h2> 
-                    <hr>
-                    <div id="sheds">
-                        <label for="shed_A">Shed A: Milk (Litres)</label>
-                        <input id="shed_A" type="number" min="0" required>
-                    </div>
-            
-                    <div id="sheds">
-                        <label for="shed_B">Shed B: Milk (Litres)</label>
-                        <input id="shed_B" type="number" min="0" required>
-                    </div>
-            
-                    <div id="sheds">
-                        <label for="shed_C">Shed C: Milk (Litres)</label>
-                        <input id="shed_C" type="number" min="0" required>
-                    </div>
-            
-                    <div id="sheds">
-                        <label for="shed_D">Shed D: Milk (Litres)</label>
-                        <input id="shed_D" type="number" min="0" required>
-                    </div>
-            
-                    <button type="submit">Submit</button>
-                    <button id="reset" type="reset" onclick="resetPage();">Reset</button>
-                    
-                </form>
-            </div>
-    
-            <!-- output section -->
-            
-            <div class="outputDisplay">
-                <h2 id="outputTitle">Production Output</h2>
-                <hr>
-                <p id="outputData"></p>
-    
-                <!-- optional qn section -->
-            </div>
-        </div>    
-    </section>
-    <script src="assets/js/app.js"></script>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Milk</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form class="form">
+        <div class="form__row"></div>
+        <div class="form__row">
+          <label class="form__label">Shed A</label>
+          <input
+            class="form__input form__input--shedA"
+            data-letter="A"
+            placeholder="litres"
+          />
+        </div>
+        <div class="form__row">
+          <label class="form__label">Shed B</label>
+          <input
+            class="form__input form__input--shedB"
+            data-letter="B"
+            placeholder="litres"
+          />
+        </div>
+        <div class="form__row">
+          <label class="form__label">Shed C</label>
+          <input
+            class="form__input form__input--shedC"
+            data-letter="C"
+            placeholder="litres"
+          />
+        </div>
+        <div class="form__row">
+          <label class="form__label">Shed D</label>
+          <input
+            class="form__input form__input--shedD"
+            data-letter="D"
+            placeholder="litres"
+          />
+        </div>
+        <button class="form__btn">OK</button>
+      </form>
+    </div>
+    <div class="reports_hidden">
+      <div class="report--daily"><h2>Daily Summary</h2></div>
+      <div class="report--weekly"><h2>Weekly Summary</h2></div>
+      <div class="report--monthly"><h2>Monthly Summary</h2></div>
+      <div class="report--yearly"><h2>Yearly Summary</h2></div>
+    </div>
+    <script defer src="assets/js/app.js"></script>
+  </body>
 </html>
